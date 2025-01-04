@@ -6,11 +6,11 @@
 /*   By: lucas-do <lucas-do@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 16:17:03 by lucas-do          #+#    #+#             */
-/*   Updated: 2024/10/03 17:58:44 by lucas-do         ###   ########.fr       */
+/*   Updated: 2025/01/04 14:33:42 by lucas-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
 static	int	count_tokens(char const *s, char sep)
 {

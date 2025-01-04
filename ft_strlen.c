@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lucas-do <lucas-do@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/04 13:53:41 by lucas-do          #+#    #+#             */
-/*   Updated: 2025/01/04 13:55:30 by lucas-do         ###   ########.fr       */
+/*   Created: 2025/01/04 14:35:34 by lucas-do          #+#    #+#             */
+/*   Updated: 2025/01/04 14:37:03 by lucas-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+size_t	ft_strlen(const char *str)
 {
+	size_t	i;
 
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
