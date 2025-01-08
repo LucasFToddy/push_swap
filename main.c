@@ -12,7 +12,23 @@
 
 #include "push_swap.h"
 
+
 int	main(int argc, char **argv)
 {
+	struct s_list *a;
+	struct s_list *b;
 
+	a = NULL;
+	b = NULL;
+	if (1 == argc || (2 == argc && !argv[1][0]))
+		return (1);
+	else if (2 == argc)
+		argv = ft_split(argv[1], ' ');
+	stack_init(&a, argv, argc);
+	display_list(a);
+	ft_swap(a);
+	display_list(a);
+	ft_push(&a, &b);
+	display_list(a);
+	display_list(b);
 }

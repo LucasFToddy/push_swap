@@ -27,7 +27,14 @@ typedef struct s_list
 
 char	**ft_split(char const *s, char c);
 int	ft_atoi(const char *nptr);
+int	ft_len_stack(struct s_list *head);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlen(const char *str);
+void	stack_init(struct s_list **head, char **matrix, int arg);
+void	insert_end(struct s_list **head, int value);
+void	ft_push(struct s_list **src, struct s_list **dest);
+void	display_list(struct s_list *head);
+void	ft_putstr(char *str);
+void	ft_swap(struct s_list *head);
 
 #endif

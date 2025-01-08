@@ -11,9 +11,8 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
-struct s_list *createNode(int value)
+struct s_list *create_node(int value)
 {
 	struct s_list *newNode;
 
@@ -29,12 +28,12 @@ struct s_list *createNode(int value)
 	return (newNode);
 }
 
-void	insertEnd(struct s_list **head, int value)
+void	insert_end(struct s_list **head, int value)
 {
 	int i;
 	struct s_list *newNode;
 
-	newNode = createNode(value);
+	newNode = create_node(value);
 
 	if (*head == NULL)
 	{
@@ -57,16 +56,19 @@ void	insertEnd(struct s_list **head, int value)
 	newNode->index = i;
 }
 
-void	displayList(struct s_list *head)
+int	ft_len_stack(struct s_list *head)
 {
-	struct s_list *temp = head;
+	struct s_list *temp;
+	int	len_stack;
 
+	temp = head;
+	len_stack = 0;
 	while (temp != NULL)
 	{
-		printf("value = %d index = %d -> ", temp->data, temp->index);
 		temp = temp->next;
+		len_stack++;
 	}
-	printf("NULL\n");
+	return (len_stack);
 }
 
 void	stack_init(struct s_list **head, char **matrix, int arg)
@@ -75,33 +77,7 @@ void	stack_init(struct s_list **head, char **matrix, int arg)
 		matrix++;
 	while (*matrix != NULL)
 	{
-		insertEnd(head, ft_atoi(*matrix));
+		insert_end(head, ft_atoi(*matrix));
 		matrix++;
 	}
 }
-
-int	main(int argc, char **argv)
-{
-	struct s_list *a;
-
-	a = NULL;
-	if (1 == argc || (2 == argc && !argv[1][0]))
-		return (1);
-	else if (2 == argc)
-		argv = ft_split(argv[1], ' ');
-	stack_init(&a, argv, argc);
-	displayList(a);
-}
-
-// int main() 
-// {
-//     struct s_list *head = NULL;
-
-//     insertEnd(&head, 10);
-//     insertEnd(&head, 20);
-//     insertEnd(&head, 30);
-//     insertEnd(&head, 40);
-
-//     printf("Lista original:\n");
-//     displayList(head);
-// }
