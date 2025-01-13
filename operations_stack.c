@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   operations_stack.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lucas-do <lucas-do@student.42.rio>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/13 18:48:56 by lucas-do          #+#    #+#             */
+/*   Updated: 2025/01/13 19:35:23 by lucas-do         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 
-#include <stdio.h>
 void	display_list(struct s_list *head)
 {
 	struct s_list *temp = head;
@@ -41,9 +52,8 @@ void	ft_push(struct s_list **src, struct s_list **dest)
 	tmp = *src;
 	if (len_stack <= 1)
 		return;
-	while(tmp->next != NULL)
-		tmp = tmp->next;
 	insert_end(dest, tmp->data);
+	ft_remove(src, tmp->index);
 }
 
 

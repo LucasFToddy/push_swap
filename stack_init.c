@@ -6,7 +6,7 @@
 /*   By: lucas-do <lucas-do@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 11:12:42 by lucas-do          #+#    #+#             */
-/*   Updated: 2025/01/04 14:55:32 by lucas-do         ###   ########.fr       */
+/*   Updated: 2025/01/13 19:36:25 by lucas-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,37 @@ void	stack_init(struct s_list **head, char **matrix, int arg)
 		matrix++;
 	while (*matrix != NULL)
 	{
+		if (ft_check_list(head, ft_atoi(*matrix)) == 1)
+		{
+			printf("numero duplicado!");
+			ft_list_free(head);
+			return;
+		}
 		insert_end(head, ft_atoi(*matrix));
 		matrix++;
 	}
+}
+
+void	ft_remove(struct s_list **head, int index)
+{
+	struct s_list *tmp;
+
+	tmp  = *head;
+	if (tmp != NULL && tmp->index == index)
+	{
+		*head = tmp->next;
+		free(tmp);
+		return;
+	}
+	
+	while (tmp != NULL && tmp->index != index)
+		tmp = tmp->next;
+
+	if (tmp == NULL)
+		return;
+
+	tmp->prev->next = tmp->next;
+
+	free(tmp);
+	return;
 }

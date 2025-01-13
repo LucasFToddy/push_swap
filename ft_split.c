@@ -6,7 +6,7 @@
 /*   By: lucas-do <lucas-do@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 16:17:03 by lucas-do          #+#    #+#             */
-/*   Updated: 2025/01/04 14:33:42 by lucas-do         ###   ########.fr       */
+/*   Updated: 2025/01/13 18:29:52 by lucas-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,49 +98,3 @@ char	**ft_split(char const *s, char c)
 	a[t] = NULL;
 	return (a);
 }
-/*
-int	main(void)
- {
- 	char * * tab = ft_split("", ' ');
- 	// printf("%zu\n",(strlen("42") + 1));
- 	// printf("%zu\n",(strlen(tab[1])));
- 	int	i = 0;
- 	while (tab[i])
- 	{
- 		printf("%s\n", tab[i]);
- 		i++;
- 	}
- }
-*/
-/*
-int	main(void)
-{
-	char * * tab = ft_split("  tripouille  42  ", ' ');
-	printf("%s\n", tab[0]);
-	printf("%s\n", tab[1]);
-	printf("%s\n", tab[2]);
-}
-*/
-/*
-int    main(void)
-{
-    char    str[] = "   teste teste1   teste2 teste3 teste4   ";
-    char    **strs = ft_split(str, ' ');
-    int    i;
-
-    i = 0;
-    while (strs[i])
-    {
-        printf("%s\n", strs[i]);
-        i++;
-    }
-    i = 0;
-    while (strs[i])
-    {
-        free(strs[i]);
-        i++;
-    }
-	free(strs);
-    return (0);
-}
-*/
