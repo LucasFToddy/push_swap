@@ -24,11 +24,12 @@ int	main(int argc, char **argv)
 		return (1);
 	else if (2 == argc)
 		argv = ft_split(argv[1], ' ');
-	stack_init(&a, argv, argc);
+	if (stack_init(&a, argv, argc) == 0)
+		return 0;
 	display_list(a);
-	ft_swap(a);
-	display_list(a);
-	ft_push(&a, &b);
-	display_list(a);
-	display_list(b);
+	// ft_swap(a);
+	// display_list(a);
+	// ft_push(&a, &b);
+	// display_list(a);
+	// display_list(b);
 }

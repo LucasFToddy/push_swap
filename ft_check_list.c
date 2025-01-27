@@ -17,8 +17,7 @@ int	ft_check_list(struct s_list **head, int value)
 	struct s_list *tmp;
 
 	tmp = *head;
-	printf("deu ruim %d\n", tmp->data);
-	while (tmp->next != NULL)
+	while (tmp != NULL)
 	{
 		if (tmp->data == value)
 			return (1);
@@ -27,11 +26,38 @@ int	ft_check_list(struct s_list **head, int value)
 	return (0);
 }
 
+int	ft_check_str(char *str)
+{
+	int	i;
+
+	i = 0;
+	while(str[i])
+	{
+		if (!(str[i] >= '0' && str[i] <= '9'))
+			return(0);
+		i++;
+	}
+	return (1);
+}
+
+int	ft_check(char **matrix)
+{
+	int	i;
+
+	i = 0;
+	while (matrix[i])
+	{
+		if (!(ft_check_str(matrix[i])))
+			return (1);
+	}
+	return (0);
+}
+
 void	ft_list_free(struct s_list **head)
 {
 	struct s_list *tmp;
 
-	while (head != NULL)
+	while (*head != NULL)
 	{
 		tmp = *head;
 		*head = (*head)->next;

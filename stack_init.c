@@ -71,7 +71,7 @@ int	ft_len_stack(struct s_list *head)
 	return (len_stack);
 }
 
-void	stack_init(struct s_list **head, char **matrix, int arg)
+int	stack_init(struct s_list **head, char **matrix, int arg)
 {
 	if (arg > 2)
 		matrix++;
@@ -81,11 +81,12 @@ void	stack_init(struct s_list **head, char **matrix, int arg)
 		{
 			printf("numero duplicado!");
 			ft_list_free(head);
-			return;
+			return (0);
 		}
 		insert_end(head, ft_atoi(*matrix));
 		matrix++;
 	}
+	return (1);
 }
 
 void	ft_remove(struct s_list **head, int index)
