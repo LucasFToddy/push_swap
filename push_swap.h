@@ -29,18 +29,21 @@ typedef struct s_list
 }	t_list;
 
 char	**ft_split(char const *s, char c);
+char	*ft_strjoin(char *s1, char *s2);
 int	ft_atoi(const char *nptr);
 int	ft_len_stack(struct s_list *head);
 int	ft_check_list(struct s_list **head, int value);
+int	ft_check_str(char *str);
 int	stack_init(struct s_list **head, char **matrix, int arg);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlen(const char *str);
-void	insert_end(struct s_list **head, int value);
+int	insert_end(struct s_list **head, int value);
 void	ft_remove(struct s_list **head, int key);
 void	ft_push(struct s_list **src, struct s_list **dest);
 void	display_list(struct s_list *head);
 void	ft_putstr(char *str);
 void	ft_swap(struct s_list *head);
 void	ft_list_free(struct s_list **head);
+void	clear_split(char **str);
 
 #endif

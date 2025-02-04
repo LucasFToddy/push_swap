@@ -98,3 +98,15 @@ char	**ft_split(char const *s, char c)
 	a[t] = NULL;
 	return (a);
 }
+
+void	clear_split(char **str)
+{
+	int	k;
+	k = 0;
+	while (str[k])
+	{
+		free(str[k]);
+		k++;
+	}
+	free(str);
+}

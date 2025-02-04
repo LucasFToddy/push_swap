@@ -31,24 +31,13 @@ int	ft_check_str(char *str)
 	int	i;
 
 	i = 0;
+	if(str[i] == '+' || str[i] == '-')
+		i++;
 	while(str[i])
 	{
 		if (!(str[i] >= '0' && str[i] <= '9'))
-			return(0);
+			return(1);
 		i++;
-	}
-	return (1);
-}
-
-int	ft_check(char **matrix)
-{
-	int	i;
-
-	i = 0;
-	while (matrix[i])
-	{
-		if (!(ft_check_str(matrix[i])))
-			return (1);
 	}
 	return (0);
 }

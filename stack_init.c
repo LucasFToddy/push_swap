@@ -28,17 +28,19 @@ struct s_list *create_node(int value)
 	return (newNode);
 }
 
-void	insert_end(struct s_list **head, int value)
+int	insert_end(struct s_list **head, int value)
 {
 	int i;
 	struct s_list *newNode;
 
 	newNode = create_node(value);
+	if (newNode == NULL)
+		return 0;
 
 	if (*head == NULL)
 	{
 		*head = newNode;
-		return;
+		return 1;
 	}
 
 	struct s_list *temp;
@@ -54,6 +56,7 @@ void	insert_end(struct s_list **head, int value)
 	temp->next = newNode;
 	newNode->prev = temp;
 	newNode->index = i;
+	return 1;
 }
 
 int	ft_len_stack(struct s_list *head)
@@ -79,11 +82,21 @@ int	stack_init(struct s_list **head, char **matrix, int arg)
 	{
 		if (ft_check_list(head, ft_atoi(*matrix)) == 1)
 		{
-			printf("numero duplicado!");
+			printf("duplicate number!\n");
 			ft_list_free(head);
 			return (0);
 		}
-		insert_end(head, ft_atoi(*matrix));
+		else if (ft_check_str(*matrix))
+		{
+			printf("please enter only numbers!\n");
+			ft_list_free(head);
+			return (0);
+		}
+		if (!insert_end(head, ft_atoi(*matrix)))
+		{
+			ft_list_free(head);
+			return (0);
+		}
 		matrix++;
 	}
 	return (1);

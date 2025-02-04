@@ -16,17 +16,39 @@
 int	main(int argc, char **argv)
 {
 	struct s_list *a;
-	struct s_list *b;
+	// struct s_list *b;
+	char	*str;
+	int	i;
 
 	a = NULL;
-	b = NULL;
+	str = NULL;
+	// b = NULL;
 	if (1 == argc || (2 == argc && !argv[1][0]))
 		return (1);
 	else if (2 == argc)
 		argv = ft_split(argv[1], ' ');
+	else
+	{
+		i = 0;
+		while(i < argc)
+		{
+			str = ft_strjoin(str, argv[i]);
+			str = ft_strjoin(str, " ");
+			i++;
+		}
+		argv = ft_split(str, ' ');
+		free(str);
+	}
 	if (stack_init(&a, argv, argc) == 0)
+	{
+		clear_split(argv);
+		ft_list_free(&a);
 		return 0;
+	}
 	display_list(a);
+	clear_split(argv);
+	ft_list_free(&a);
+	// ft_list_free(&a);
 	// ft_swap(a);
 	// display_list(a);
 	// ft_push(&a, &b);
