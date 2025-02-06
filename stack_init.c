@@ -12,11 +12,11 @@
 
 #include "push_swap.h"
 
-struct s_list *create_node(int value)
+t_list *create_node(int value)
 {
-	struct s_list *newNode;
+	t_list *newNode;
 
-	newNode = (struct s_list *)malloc(sizeof(struct s_list));
+	newNode = (t_list *)malloc(sizeof(t_list));
 	if (!newNode)
 		return (NULL);
 
@@ -28,10 +28,10 @@ struct s_list *create_node(int value)
 	return (newNode);
 }
 
-int	insert_end(struct s_list **head, int value)
+int	insert_end(t_list **head, int value)
 {
 	int i;
-	struct s_list *newNode;
+	t_list *newNode;
 
 	newNode = create_node(value);
 	if (newNode == NULL)
@@ -42,8 +42,7 @@ int	insert_end(struct s_list **head, int value)
 		*head = newNode;
 		return 1;
 	}
-
-	struct s_list *temp;
+	t_list *temp;
 
 	temp = *head;	
 	i = 1;
@@ -52,29 +51,13 @@ int	insert_end(struct s_list **head, int value)
 		temp = temp->next;
 		i++;
 	}
-	
 	temp->next = newNode;
 	newNode->prev = temp;
 	newNode->index = i;
 	return 1;
 }
 
-int	ft_len_stack(struct s_list *head)
-{
-	struct s_list *temp;
-	int	len_stack;
-
-	temp = head;
-	len_stack = 0;
-	while (temp != NULL)
-	{
-		temp = temp->next;
-		len_stack++;
-	}
-	return (len_stack);
-}
-
-int	stack_init(struct s_list **head, char **matrix, int arg)
+int	stack_init(t_list **head, char **matrix, int arg)
 {
 	if (arg > 2)
 		matrix++;
@@ -102,9 +85,9 @@ int	stack_init(struct s_list **head, char **matrix, int arg)
 	return (1);
 }
 
-void	ft_remove(struct s_list **head, int index)
+void	ft_remove(t_list **head, int index)
 {
-	struct s_list *tmp;
+	t_list *tmp;
 
 	tmp  = *head;
 	if (tmp != NULL && tmp->index == index)

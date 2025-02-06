@@ -12,10 +12,9 @@
 
 #include "push_swap.h"
 
-
-void	display_list(struct s_list *head)
+void	display_list(t_list *head)
 {
-	struct s_list *temp = head;
+	t_list *temp = head;
 
 	while (temp != NULL)
 	{
@@ -25,10 +24,10 @@ void	display_list(struct s_list *head)
 	printf("NULL\n");
 }
 
-void	ft_swap(struct s_list *head)
+void	ft_swap(t_list *head)
 {
-	struct s_list *tmp_1;
-	struct s_list *tmp_2;
+	t_list *tmp_1;
+	t_list *tmp_2;
 	int	value_tmp;
 	int	len_stack;
 
@@ -43,9 +42,9 @@ void	ft_swap(struct s_list *head)
 	return;
 }
 
-void	ft_push(struct s_list **src, struct s_list **dest)
+void	ft_push(t_list **src, t_list **dest)
 {
-	struct s_list *tmp;
+	t_list *tmp;
 	int	len_stack;
 
 	len_stack = ft_len_stack(*src);
@@ -54,6 +53,35 @@ void	ft_push(struct s_list **src, struct s_list **dest)
 		return;
 	insert_end(dest, tmp->data);
 	ft_remove(src, tmp->index);
+	//printf("P%s\n", );
 }
 
+void	ft_rotate(t_list **src)
+{
+	t_list *tmp;
+	t_list *end;
 
+	end = *src;
+	tmp = *src;
+	while (tmp->next != NULL)
+		tmp = tmp->next;
+	tmp->next = end;
+	end->prev = tmp;
+	*src = (*src)->next;
+	(*src)->prev = NULL;
+	end->next = NULL;
+}
+
+void	ft_reverse_rotate(t_list **src)
+{
+	t_list *tmp;
+	t_list *end;
+
+	tmp = *src;
+	end = list_last(*src);
+	(*src)->prev = end;
+	end->prev->next = NULL;
+	end->prev = NULL;
+	end->next = *src;
+	*src = (*src)->prev;
+}

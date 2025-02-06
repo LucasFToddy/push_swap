@@ -15,8 +15,8 @@
 
 int	main(int argc, char **argv)
 {
-	struct s_list *a;
-	// struct s_list *b;
+	t_list *a;
+	// t_list *b;
 	char	*str;
 	int	i;
 
@@ -47,11 +47,15 @@ int	main(int argc, char **argv)
 	}
 	display_list(a);
 	clear_split(argv);
-	ft_list_free(&a);
 	// ft_list_free(&a);
+	ft_rotate(&a);	
+	display_list(a);
+	ft_reverse_rotate(&a);
+	display_list(a);
+	ft_list_free(&a);
 	// ft_swap(a);
 	// display_list(a);
-	// ft_push(&a, &b);
+	// ft_push(&a, &b, "b");
 	// display_list(a);
 	// display_list(b);
 }
