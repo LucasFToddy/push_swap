@@ -2,7 +2,7 @@ NAME= push_swap.a
 
 SRC = 	ft_putstr.c ft_strlcpy.c operations_stack.c stack_init.c \
 	ft_atoi.c ft_split.c ft_strlen.c ft_check_list.c ft_strjoin.c \
-	moves_stack.c
+	moves_stack.c set_target.c inserts_list.c ft_strcmp.c
 
 CC= cc
 

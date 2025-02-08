@@ -12,49 +12,18 @@
 
 #include "push_swap.h"
 
-t_list *create_node(int value)
+t_list	*create_node(int value)
 {
-	t_list *newNode;
+	t_list	*new_node;
 
-	newNode = (t_list *)malloc(sizeof(t_list));
-	if (!newNode)
+	new_node = (t_list *)malloc(sizeof(t_list));
+	if (!new_node)
 		return (NULL);
-
-	newNode->data = value;
-	newNode->index = 0;
-	newNode->next = NULL;
-	newNode->prev = NULL;
-
-	return (newNode);
-}
-
-int	insert_end(t_list **head, int value)
-{
-	int i;
-	t_list *newNode;
-
-	newNode = create_node(value);
-	if (newNode == NULL)
-		return 0;
-
-	if (*head == NULL)
-	{
-		*head = newNode;
-		return 1;
-	}
-	t_list *temp;
-
-	temp = *head;	
-	i = 1;
-	while (temp->next != NULL)
-	{
-		temp = temp->next;
-		i++;
-	}
-	temp->next = newNode;
-	newNode->prev = temp;
-	newNode->index = i;
-	return 1;
+	new_node->data = value;
+	new_node->target = NULL;
+	new_node->next = NULL;
+	new_node->prev = NULL;
+	return (new_node);
 }
 
 int	stack_init(t_list **head, char **matrix, int arg)
@@ -85,26 +54,15 @@ int	stack_init(t_list **head, char **matrix, int arg)
 	return (1);
 }
 
-void	ft_remove(t_list **head, int index)
+void	ft_remove(t_list **head)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
-	tmp  = *head;
-	if (tmp != NULL && tmp->index == index)
+	tmp = *head;
+	if (tmp != NULL)
 	{
 		*head = tmp->next;
 		free(tmp);
-		return;
+		return ;
 	}
-	
-	while (tmp != NULL && tmp->index != index)
-		tmp = tmp->next;
-
-	if (tmp == NULL)
-		return;
-
-	tmp->prev->next = tmp->next;
-
-	free(tmp);
-	return;
 }
