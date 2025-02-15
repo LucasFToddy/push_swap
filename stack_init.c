@@ -20,6 +20,7 @@ t_list	*create_node(int value)
 	if (!new_node)
 		return (NULL);
 	new_node->data = value;
+	new_node->index = 0;
 	new_node->target = NULL;
 	new_node->next = NULL;
 	new_node->prev = NULL;

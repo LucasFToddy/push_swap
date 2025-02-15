@@ -54,14 +54,14 @@ int	main(int argc, char **argv)
 	//display_list(a);
 	ft_push(&a, &b, "b");
 	ft_push(&a, &b, "b");
-	ft_push(&a, &b, "b");
+	// ft_push(&a, &b, "b");
 	printf("print stack A\n");
 	display_list(a);
 	printf("fim stack A ------\n");
 	printf("print stack B\n");
 	display_list(b);
 	printf("fim stack B ------\n");
-	ft_push(&a, &b, "a");
+	ft_push(&a, &b, "b");
 	printf("print stack A\n");
 	display_list(a);
 	printf("fim stack A ------\n");

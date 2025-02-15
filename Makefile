@@ -10,24 +10,26 @@ CFLAG= -Wall -Wextra -Werror
 
 OBJ= $(SRC:.c=.o)
 
+
 $(NAME): $(OBJ)
 	ar rc $(NAME) $(OBJ)
 
 .c.o:
 	$(CC) $(CFLAG) -c $< -o $(<:.c=.o)
 
-all: $(NAME)
+all: $(NAME) 
+	$(CC) $(CFLAG) push_swap.c -o push_swap $(NAME)
 
 clean:
 	rm -rf $(OBJ)
 
 fclean:clean
-	rm -rf $(NAME) 
+	rm -rf $(NAME) push_swap
 
 re: fclean all 
 
 run:
 	clear
-	$(CC) $(CFLAG) main.c -o push_swap $(NAME)
+	$(CC) $(CFLAG) push_swap.c -o push_swap $(NAME)
 
 .PHONY: all clean fclean re

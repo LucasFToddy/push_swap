@@ -22,6 +22,7 @@ void	display_list(t_list *head)
 		printf("value = %d", temp->data);
 		if ( temp->target != NULL)
 			printf("and target = %d", temp->target->data);
+		printf(" and index = %d", temp->index	);
 		printf("\n");
 		temp = temp->next;
 	}

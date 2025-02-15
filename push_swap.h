@@ -23,6 +23,7 @@
 typedef struct s_list
 {
 	int	data;
+	int	index;
 	struct s_list	*target;
 	struct s_list	*next;
 	struct s_list	*prev;
@@ -52,5 +53,6 @@ void	clear_split(char **str);
 void	ft_rotate(t_list **src);
 void	ft_reverse_rotate(t_list **src);
 void	set_target(t_list **a, t_list **b);
+void	indexing_stack(t_list **head);
 
 #endif
