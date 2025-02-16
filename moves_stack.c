@@ -19,10 +19,12 @@ void	display_list(t_list *head)
 	temp = head;
 	while (temp != NULL)
 	{
-		printf("value = %d", temp->data);
-		if ( temp->target != NULL)
-			printf("and target = %d", temp->target->data);
-		printf(" and index = %d", temp->index	);
+		printf("v = %d", temp->data);
+		// if ( temp->target != NULL)
+		// 	printf(" t = %d", temp->target->data);
+		// printf(" i = %d", temp->index);
+		// printf(" cp = %d", temp->cost_push);
+		// printf(" tm = %d", temp->top_mid);
 		printf("\n");
 		temp = temp->next;
 	}
@@ -54,3 +56,16 @@ t_list	*list_last(t_list *head)
 	return (tmp);
 }
 
+int	stack_sorted(t_list *stack)
+{
+	t_list	*tmp;
+
+	tmp = stack;
+	while (tmp->next)
+	{
+		if (tmp->data > tmp->next->data)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
+}

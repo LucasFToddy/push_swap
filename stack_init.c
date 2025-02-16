@@ -67,3 +67,24 @@ void	ft_remove(t_list **head)
 		return ;
 	}
 }
+
+void	prep_to_push(t_list **stack, t_list *node_top, char name_stack)
+{
+	while (*stack != node_top)
+	{
+		if (name_stack == 'a')
+		{
+			if (node_top->top_mid)
+				ft_rotate(stack, 'a');
+			else
+				ft_reverse_rotate(stack, 'a');
+		}
+		if (name_stack == 'b')
+		{
+			if (node_top->top_mid)
+				ft_rotate(stack, 'b');
+			else
+				ft_reverse_rotate(stack, 'b');
+		}
+	}
+}

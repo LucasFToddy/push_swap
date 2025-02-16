@@ -45,31 +45,35 @@ int	main(int argc, char **argv)
 		ft_list_free(&a);
 		return 0;
 	}
-	display_list(a);
-	clear_split(argv);
-	// ft_list_free(&a);
-	//ft_rotate(&a);	
-	//display_list(a);
-	//ft_reverse_rotate(&a);
-	//display_list(a);
-	ft_push(&a, &b, "b");
-	ft_push(&a, &b, "b");
-	// ft_push(&a, &b, "b");
-	printf("print stack A\n");
-	display_list(a);
-	printf("fim stack A ------\n");
-	printf("print stack B\n");
-	display_list(b);
-	printf("fim stack B ------\n");
-	ft_push(&a, &b, "b");
-	printf("print stack A\n");
-	display_list(a);
-	printf("fim stack A ------\n");
-	printf("print stack B\n");
-	display_list(b);
-	printf("fim stack B ------\n");
+	if (!stack_sorted(a))
+	{
+		sort_stack(&a, &b);
+	}
 	ft_list_free(&a);
 	ft_list_free(&b);
+	// display_list(a);
+	// clear_split(argv);
+	// // ft_list_free(&a);
+	// //ft_rotate(&a);	
+	// //display_list(a);
+	// //ft_reverse_rotate(&a);
+	// //display_list(a);
+	// ft_push(&a, &b, "b");
+	// ft_push(&a, &b, "b");
+	// // ft_push(&a, &b, "b");
+	// printf("print stack A\n");
+	// display_list(a);
+	// printf("fim stack A ------\n");
+	// printf("print stack B\n");
+	// display_list(b);
+	// printf("fim stack B ------\n");
+	// ft_push(&a, &b, "b");
+	// printf("print stack A\n");
+	// display_list(a);
+	// printf("fim stack A ------\n");
+	// printf("print stack B\n");
+	// display_list(b);
+	// printf("fim stack B ------\n");
 	// ft_swap(a);
 	// display_list(a);
 	// display_list(a);
