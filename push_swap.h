@@ -58,7 +58,7 @@ void				ft_remove(t_list **head);
 void				ft_push(t_list **a, t_list **b, char *str);
 void				display_list(t_list *head);
 void				ft_putstr(char *str);
-void				ft_swap(t_list *head);
+void				ft_swap(t_list *head, char name_stack);
 void				ft_list_free(t_list **head);
 void				clear_split(char **str);
 void				ft_rotate(t_list **src, char name_stack);

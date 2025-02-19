@@ -34,10 +34,8 @@ void	ft_rotate(t_list **src, char name_stack)
 
 void	ft_reverse_rotate(t_list **src, char name_stack)
 {
-	t_list	*tmp;
 	t_list	*end;
 
-	tmp = *src;
 	end = list_last(*src);
 	(*src)->prev = end;
 	end->prev->next = NULL;
@@ -61,6 +59,6 @@ void	rrr(t_list **a, t_list **b)
 {
 	ft_reverse_rotate(a, 'r');
 	ft_reverse_rotate(b, 'r');
-	printf("rr\n");
+	printf("rrr\n");
 }
 

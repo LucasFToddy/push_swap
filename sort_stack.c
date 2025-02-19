@@ -70,7 +70,4 @@ void	sort_stack(t_list **a, t_list **b)
 	}
 	set_index(*a);
 	min_on_top(a);
-	printf("------------------------------------\n");
-	printf("list A -----------------\n");
-	display_list(*a);
 }

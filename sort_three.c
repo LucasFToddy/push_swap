@@ -38,7 +38,7 @@ void	sort_three(t_list **a)
 	else if ((*a)->next == max_value_node)
 		ft_reverse_rotate(a, 'a');
 	if ((*a)->data > (*a)->next->data)
-		ft_swap(*a);
+		ft_swap(*a, 'a');
 }
 
 t_list	*find_min_value(t_list *a)

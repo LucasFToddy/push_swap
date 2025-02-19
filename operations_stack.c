@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	ft_swap(t_list *head)
+void	ft_swap(t_list *head, char name_stack)
 {
 	t_list	*tmp_1;
 	t_list	*tmp_2;
@@ -27,6 +27,10 @@ void	ft_swap(t_list *head)
 	value_tmp = tmp_1->data;
 	tmp_1->data = tmp_2->data;
 	tmp_2->data = value_tmp;
+	if (name_stack == 'a')
+		printf("sa\n");
+	if (name_stack == 'b')
+		printf("sb\n");
 	return ;
 }
 
