@@ -35,46 +35,40 @@ void	set_index(t_list *stack)
 
 void	count_cost_push(t_list *a, t_list *b)
 {
-	t_list	*tmp_a;
-	t_list	*tmp_b;
 	int		len_a;
 	int		len_b;
 
-	tmp_a = a;
-	tmp_b = b;
-	len_a = ft_len_stack(tmp_a);
-	len_b = ft_len_stack(tmp_b);
-	while (tmp_a)
+	len_a = ft_len_stack(a);
+	len_b = ft_len_stack(b);
+	while (a)
 	{
-		tmp_a->cost_push = tmp_a->index;
-		if (!(tmp_a->top_mid))
-			tmp_a->cost_push = len_a - tmp_a->index;
-		if (tmp_a->target->top_mid)
-			tmp_a->cost_push += tmp_a->target->index;
+		a->cost_push = a->index;
+		if (!(a->top_mid))
+			a->cost_push = len_a - a->index;
+		if (a->target->top_mid)
+			a->cost_push += a->target->index;
 		else
-			tmp_a->cost_push += len_b - tmp_a->target->index;
-		tmp_a = tmp_a->next;
+			a->cost_push += len_b - a->target->index;
+		a = a->next;
 	}
 }
 
 void	set_cheaper(t_list *stack)
 {
-	t_list	*tmp;
 	t_list	*node_cheaper;
 	int		cheaper_value;
 
-	tmp = stack;
-	if (!tmp)
+	if (!stack)
 		return ;
 	cheaper_value = INT_MAX;
-	while (tmp)
+	while (stack)
 	{
-		if (tmp->cost_push < cheaper_value)
+		if (stack->cost_push < cheaper_value)
 		{
-			cheaper_value = tmp->cost_push;
-			node_cheaper = tmp;
+			cheaper_value = stack->cost_push;
+			node_cheaper = stack;
 		}
-		tmp = tmp->next;
+		stack = stack->next;
 	}
 	node_cheaper->cheaper = 1;
 }

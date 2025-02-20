@@ -39,13 +39,13 @@ static void	move_a_to_b(t_list **a, t_list **b)
 		reverse_rotate_both(a, b, node_cheaper);
 	prep_to_push(a, node_cheaper, 'a');
 	prep_to_push(b, node_cheaper->target, 'b');
-	ft_push(a, b, "b");
+	ft_push(a, b, 'b');
 }
 
 static void	move_b_to_a(t_list **a, t_list **b)
 {
 	prep_to_push(a, (*b)->target, 'a');
-	ft_push(a, b, "a");
+	ft_push(a, b, 'a');
 }
 
 void	sort_stack(t_list **a, t_list **b)
@@ -54,9 +54,9 @@ void	sort_stack(t_list **a, t_list **b)
 
 	len_a = ft_len_stack(*a);
 	if (len_a-- > 3 && !stack_sorted(*a))
-		ft_push(a, b, "b");
+		ft_push(a, b, 'b');
 	if (len_a-- > 3 && !stack_sorted(*a))
-		ft_push(a, b, "b");
+		ft_push(a, b, 'b');
 	while (len_a-- > 3 && !stack_sorted(*a))
 	{
 		init_stack_a(*a, *b);

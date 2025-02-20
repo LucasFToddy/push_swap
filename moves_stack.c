@@ -20,11 +20,6 @@ void	display_list(t_list *head)
 	while (temp != NULL)
 	{
 		printf("v = %d", temp->data);
-		// if ( temp->target != NULL)
-		// 	printf(" t = %d", temp->target->data);
-		// printf(" i = %d", temp->index);
-		// printf(" cp = %d", temp->cost_push);
-		// printf(" tm = %d", temp->top_mid);
 		printf("\n");
 		temp = temp->next;
 	}

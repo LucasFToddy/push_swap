@@ -57,17 +57,3 @@ int	insert_back(t_list **head, int value)
 	return (1);
 }
 
-void	indexing_stack(t_list **head)
-{
-	t_list	*tmp;
-	int		i;
-
-	tmp = *head;
-	i = 0;
-	while (tmp->next == NULL)
-	{
-		tmp->index = i;
-		tmp = tmp->next;
-		i++;
-	}
-}

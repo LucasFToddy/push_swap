@@ -24,6 +24,9 @@ t_list	*create_node(int value)
 	new_node->target = NULL;
 	new_node->next = NULL;
 	new_node->prev = NULL;
+	new_node->cheaper = 0;
+	new_node->cost_push = 0;
+	new_node->top_mid = 0;
 	return (new_node);
 }
 
@@ -33,15 +36,8 @@ int	stack_init(t_list **head, char **matrix, int arg)
 		matrix++;
 	while (*matrix != NULL)
 	{
-		if (ft_check_list(head, ft_atoi(*matrix)) == 1)
+		if (!check_error(head, *matrix))
 		{
-			printf("duplicate number!\n");
-			ft_list_free(head);
-			return (0);
-		}
-		else if (ft_check_str(*matrix))
-		{
-			printf("please enter only numbers!\n");
 			ft_list_free(head);
 			return (0);
 		}
@@ -53,6 +49,23 @@ int	stack_init(t_list **head, char **matrix, int arg)
 		matrix++;
 	}
 	return (1);
+}
+
+void	different_parameters(int argc, char **argv)
+{
+	char	*str;
+	int	i;
+
+	str = NULL;
+	i = 0;
+	while(i < argc)
+	{
+		str = ft_strjoin(str, argv[i]);
+		str = ft_strjoin(str, " ");
+		i++;
+	}
+	argv = ft_split(str, ' ');
+	free(str);
 }
 
 void	ft_remove(t_list **head)

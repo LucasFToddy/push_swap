@@ -34,12 +34,12 @@ void	ft_swap(t_list *head, char name_stack)
 	return ;
 }
 
-void	ft_push(t_list **a, t_list **b, char *str)
+void	ft_push(t_list **a, t_list **b, char str)
 {
 	t_list	*tmp;
 	int		len_stack;
 
-	if (!ft_strcmp(str, "b"))
+	if (str =='b')
 	{
 		len_stack = ft_len_stack(*a);
 		tmp = *a;
@@ -48,7 +48,7 @@ void	ft_push(t_list **a, t_list **b, char *str)
 		insert_back(b, tmp->data);
 		ft_remove(a);
 	}
-	if (!ft_strcmp(str, "a"))
+	if (str =='a')
 	{
 		len_stack = ft_len_stack(*b);
 		tmp = *b;
@@ -57,5 +57,5 @@ void	ft_push(t_list **a, t_list **b, char *str)
 		insert_back(a, tmp->data);
 		ft_remove(b);
 	}
-	printf("p%s\n", str);
+	printf("p%c\n", str);
 }

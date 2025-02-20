@@ -1,26 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lucas-do <lucas-do@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/15 10:57:12 by lucas-do          #+#    #+#             */
-/*   Updated: 2025/02/15 10:58:39 by lucas-do         ###   ########.fr       */
+/*   Created: 2025/01/04 14:11:54 by lucas-do          #+#    #+#             */
+/*   Updated: 2025/01/04 14:12:50 by lucas-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_strcmp(char *s1, char *s2)
+long	ft_atol(const char *nptr)
 {
-	size_t	i;
+	int	i;
+	long	r;
+	long	s;
 
 	i = 0;
-	if (ft_strlen(s2) == 0)
-		return (-1);
-	while (s1[i] == s2[i] && s1[i])
+	r = 0;
+	s = 1;
+	while (nptr[i] == ' ' || nptr[i] == '\t' || nptr[i] == '\v'
+		|| nptr[i] == '\n' || nptr[i] == '\f' || nptr[i] == '\r')
 		i++;
-
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	while (nptr[i] == '-' || nptr[i] == '+')
+	{
+		if (nptr[i] == '-')
+			s *= -1;
+		i++;
+		break ;
+	}
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+	{
+		r = (r * 10) + (nptr[i] - '0');
+		i++;
+	}
+	return (r * s);
 }

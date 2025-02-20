@@ -28,7 +28,7 @@ void	ft_rotate(t_list **src, char name_stack)
 	end->next = NULL;
 	if (name_stack == 'a')
 		printf("ra\n");
-	else if (name_stack == 'b')
+	if (name_stack == 'b')
 		printf("rb\n");
 }
 
@@ -44,7 +44,7 @@ void	ft_reverse_rotate(t_list **src, char name_stack)
 	*src = (*src)->prev;
 	if (name_stack == 'a')
 		printf("rra\n");
-	else if (name_stack == 'b')
+	if (name_stack == 'b')
 		printf("rrb\n");
 }
 

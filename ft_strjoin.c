@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-size_t	ft_strlcat(char *dst, char *src, size_t size)
+static size_t	ft_strlcat(char *dst, char *src, size_t size)
 {
 	size_t	i;
 	size_t	len_dst;
@@ -24,7 +24,7 @@ size_t	ft_strlcat(char *dst, char *src, size_t size)
 	return (len_dst + len_src);
 }
 
-char	*ft_strdup(char *s)
+static char	*ft_strdup(char *s)
 {
 	char	*a;
 	size_t	i;
@@ -47,7 +47,7 @@ char	*ft_strdup(char *s)
 	return (a);
 }
 
-void	ft_bzero(void *s, size_t n)
+static void	ft_bzero(void *s, size_t n)
 {
 	unsigned char	*a;
 	size_t			i;

@@ -12,9 +12,9 @@
 
 #include "push_swap.h"
 
-int	ft_check_list(struct s_list **head, int value)
+static int	ft_check_duplic(t_list **head, int value)
 {
-	struct s_list	*tmp;
+	t_list	*tmp;
 
 	tmp = *head;
 	while (tmp != NULL)
@@ -26,7 +26,7 @@ int	ft_check_list(struct s_list **head, int value)
 	return (0);
 }
 
-int	ft_check_str(char *str)
+static int	ft_check_str(char *str)
 {
 	int	i;
 
@@ -42,9 +42,31 @@ int	ft_check_str(char *str)
 	return (0);
 }
 
-void	ft_list_free(struct s_list **head)
+int		check_error(t_list **head, char *str)
 {
-	struct s_list	*tmp;
+	long	nbr;
+
+	nbr = ft_atol(*str);
+	if (nbr > INT_MAX || nbr < INT_MIN)
+		return (0);
+	if (ft_check_duplic(head, (int)nbr))
+	{
+		printf("duplicate number!\n");
+		ft_list_free(head);
+		return (0);
+	}
+	if (ft_check_str(*str))
+	{
+		printf("please enter only numbers!\n");
+		ft_list_free(head);
+		return (0);
+	}
+	return (1);
+}
+
+void	ft_list_free(t_list **head)
+{
+	t_list	*tmp;
 
 	while (*head != NULL)
 	{
@@ -52,4 +74,5 @@ void	ft_list_free(struct s_list **head)
 		*head = (*head)->next;
 		free(tmp);
 	}
+	*head = NULL;
 }
