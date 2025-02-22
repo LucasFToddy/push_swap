@@ -6,7 +6,7 @@
 /*   By: lucas-do <lucas-do@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 18:48:56 by lucas-do          #+#    #+#             */
-/*   Updated: 2025/01/13 19:35:23 by lucas-do         ###   ########.fr       */
+/*   Updated: 2025/02/22 16:48:14 by lucas-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ void	ft_swap(t_list *head, char name_stack)
 	tmp_1->data = tmp_2->data;
 	tmp_2->data = value_tmp;
 	if (name_stack == 'a')
-		printf("sa\n");
+		ft_printf("sa\n");
 	if (name_stack == 'b')
-		printf("sb\n");
+		ft_printf("sb\n");
 	return ;
 }
 
@@ -39,7 +39,7 @@ void	ft_push(t_list **a, t_list **b, char str)
 	t_list	*tmp;
 	int		len_stack;
 
-	if (str =='b')
+	if (str == 'b')
 	{
 		len_stack = ft_len_stack(*a);
 		tmp = *a;
@@ -48,7 +48,7 @@ void	ft_push(t_list **a, t_list **b, char str)
 		insert_back(b, tmp->data);
 		ft_remove(a);
 	}
-	if (str =='a')
+	if (str == 'a')
 	{
 		len_stack = ft_len_stack(*b);
 		tmp = *b;
@@ -57,5 +57,5 @@ void	ft_push(t_list **a, t_list **b, char str)
 		insert_back(a, tmp->data);
 		ft_remove(b);
 	}
-	printf("p%c\n", str);
+	ft_printf("p%c\n", str);
 }

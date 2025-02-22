@@ -6,7 +6,7 @@
 /*   By: lucas-do <lucas-do@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 11:12:42 by lucas-do          #+#    #+#             */
-/*   Updated: 2025/01/13 19:36:25 by lucas-do         ###   ########.fr       */
+/*   Updated: 2025/02/22 19:38:48 by lucas-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,41 +30,33 @@ t_list	*create_node(int value)
 	return (new_node);
 }
 
-int	stack_init(t_list **head, char **matrix, int arg)
+int	stack_init(t_list **head, char **matrix)
 {
-	if (arg > 2)
-		matrix++;
 	while (*matrix != NULL)
 	{
 		if (!check_error(head, *matrix))
-		{
-			ft_list_free(head);
 			return (0);
-		}
-		if (!insert_end(head, ft_atoi(*matrix)))
-		{
-			ft_list_free(head);
+		if (!insert_end(head, ft_atol(*matrix)))
 			return (0);
-		}
 		matrix++;
 	}
 	return (1);
 }
 
-void	different_parameters(int argc, char **argv)
+void	different_parameters(int argc, char ***argv)
 {
 	char	*str;
-	int	i;
+	int		i;
 
 	str = NULL;
-	i = 0;
-	while(i < argc)
+	i = 1;
+	while (i < argc)
 	{
-		str = ft_strjoin(str, argv[i]);
+		str = ft_strjoin(str, (*argv)[i]);
 		str = ft_strjoin(str, " ");
 		i++;
 	}
-	argv = ft_split(str, ' ');
+	*argv = ft_split(str, ' ');
 	free(str);
 }
 

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lucas-do <lucas-do@student.42.rio>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/22 15:53:50 by lucas-do          #+#    #+#             */
+/*   Updated: 2025/02/22 17:13:07 by lucas-do         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static size_t	ft_strlcat(char *dst, char *src, size_t size)
@@ -63,9 +75,9 @@ static void	ft_bzero(void *s, size_t n)
 
 char	*ft_strjoin(char *s1, char *s2)
 {
-	char	*a;
 	size_t	len_s1;
 	size_t	len_s2;
+	char	*a;
 
 	if (!s1 && !s2)
 		return (NULL);

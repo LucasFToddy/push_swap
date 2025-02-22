@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lucas-do <lucas-do@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/04 14:34:42 by lucas-do          #+#    #+#             */
-/*   Updated: 2025/02/22 17:11:35 by lucas-do         ###   ########.fr       */
+/*   Created: 2024/10/21 11:01:55 by lucas-do          #+#    #+#             */
+/*   Updated: 2025/02/22 16:46:55 by lucas-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_printf.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+int	ft_putstr(char *s)
 {
-	size_t	i;
-	size_t	len;
+	int	i;
 
 	i = 0;
-	len = ft_strlen(src);
-	if (size == 0)
-		return (len);
-	while ((i < size - 1) && src[i] != '\0')
+	if (s == NULL)
 	{
-		dst[i] = src[i];
+		s = "(null)";
+	}
+	while (s[i])
+	{
+		ft_putchar(s[i]);
 		i++;
 	}
-	dst[i] = '\0';
-	return (len);
+	return (i);
 }

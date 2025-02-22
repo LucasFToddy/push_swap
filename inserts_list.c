@@ -6,7 +6,7 @@
 /*   By: lucas-do <lucas-do@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 10:55:50 by lucas-do          #+#    #+#             */
-/*   Updated: 2025/02/15 10:55:53 by lucas-do         ###   ########.fr       */
+/*   Updated: 2025/02/22 17:15:44 by lucas-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,3 @@ int	insert_back(t_list **head, int value)
 	*head = (*head)->prev;
 	return (1);
 }
-

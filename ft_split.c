@@ -6,7 +6,7 @@
 /*   By: lucas-do <lucas-do@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 16:17:03 by lucas-do          #+#    #+#             */
-/*   Updated: 2025/01/13 18:29:52 by lucas-do         ###   ########.fr       */
+/*   Updated: 2025/02/22 19:42:17 by lucas-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,7 @@ char	**ft_split(char const *s, char c)
 void	clear_split(char **str)
 {
 	int	k;
+
 	k = 0;
 	while (str[k])
 	{

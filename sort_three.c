@@ -6,7 +6,7 @@
 /*   By: lucas-do <lucas-do@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 19:32:53 by lucas-do          #+#    #+#             */
-/*   Updated: 2025/02/15 19:32:55 by lucas-do         ###   ########.fr       */
+/*   Updated: 2025/02/22 17:15:57 by lucas-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_list	*find_max_value(t_list *a)
 
 void	sort_three(t_list **a)
 {
-	t_list *max_value_node;
+	t_list	*max_value_node;
 
 	max_value_node = find_max_value(*a);
 	if (max_value_node == *a)

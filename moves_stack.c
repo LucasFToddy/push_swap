@@ -6,7 +6,7 @@
 /*   By: lucas-do <lucas-do@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 19:17:09 by lucas-do          #+#    #+#             */
-/*   Updated: 2025/02/08 18:30:23 by lucas-do         ###   ########.fr       */
+/*   Updated: 2025/02/22 15:55:32 by lucas-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ void	display_list(t_list *head)
 	temp = head;
 	while (temp != NULL)
 	{
-		printf("v = %d", temp->data);
-		printf("\n");
+		ft_printf("v = %d", temp->data);
+		ft_printf("\n");
 		temp = temp->next;
 	}
-	printf("NULL\n");
+	ft_printf("NULL\n");
 }
 
 int	ft_len_stack(t_list *head)

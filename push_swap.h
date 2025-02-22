@@ -6,7 +6,7 @@
 /*   By: lucas-do <lucas-do@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 11:00:47 by lucas-do          #+#    #+#             */
-/*   Updated: 2025/01/13 19:35:43 by lucas-do         ###   ########.fr       */
+/*   Updated: 2025/02/22 17:54:12 by lucas-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 #  define INT_MIN -2147483648
 # endif
 
+# include "./ft_printf/ft_printf.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -42,17 +43,20 @@ typedef struct s_list
 
 t_list				*list_last(t_list *head);
 t_list				*create_node(int value);
-char				**ft_split(char const *s, char c);
-char				*ft_strjoin(char *s1, char *s2);
-long					ft_atol(const char *nptr);
-int					ft_len_stack(t_list *head);
-int					check_error(t_list **head, char *str);
-int					stack_init(t_list **head, char **matrix, int arg);
-void	different_parameters(int argc, char **argv);
+t_list				*find_max_value(t_list *a);
+t_list				*find_min_value(t_list *a);
+t_list				*get_cheaper(t_list *stack);
 size_t				ft_strlcpy(char *dst, const char *src, size_t size);
 size_t				ft_strlen(const char *str);
+char				**ft_split(char const *s, char c);
+char				*ft_strjoin(char *s1, char *s2);
+int					stack_sorted(t_list *stack);
+int					ft_len_stack(t_list *head);
+int					check_error(t_list **head, char *str);
+int					stack_init(t_list **head, char **matrix);
 int					insert_end(t_list **head, int value);
 int					insert_back(t_list **head, int value);
+long				ft_atol(char *nptr);
 void				ft_remove(t_list **head);
 void				ft_push(t_list **a, t_list **b, char str);
 void				display_list(t_list *head);
@@ -66,14 +70,12 @@ void				ft_reverse_rotate(t_list **src, char name_stack);
 void				set_target(t_list **a, t_list **b, char name_stack);
 void				init_stack_a(t_list *a, t_list *b);
 void				init_stack_b(t_list *a, t_list *b);
-t_list				*get_cheaper(t_list *stack);
+void				different_parameters(int argc, char ***argv);
+void				ft_putendl_fd(char *s, int fd);
 void				set_index(t_list *stack);
 void				prep_to_push(t_list **stack, t_list *node_top,
 						char name_stack);
-int					stack_sorted(t_list *stack);
 void				sort_stack(t_list **a, t_list **b);
-t_list				*find_max_value(t_list *a);
-t_list				*find_min_value(t_list *a);
 void				sort_three(t_list **a);
 void				min_on_top(t_list **a);
 

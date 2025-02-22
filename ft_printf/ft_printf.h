@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lucas-do <lucas-do@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/04 14:34:42 by lucas-do          #+#    #+#             */
-/*   Updated: 2025/02/22 17:11:35 by lucas-do         ###   ########.fr       */
+/*   Created: 2024/10/23 19:27:00 by lucas-do          #+#    #+#             */
+/*   Updated: 2025/02/22 16:53:52 by lucas-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef FT_PRINTF_H
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
-{
-	size_t	i;
-	size_t	len;
+# define FT_PRINTF_H
 
-	i = 0;
-	len = ft_strlen(src);
-	if (size == 0)
-		return (len);
-	while ((i < size - 1) && src[i] != '\0')
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	dst[i] = '\0';
-	return (len);
-}
+# include <stdarg.h>
+# include <stdlib.h>
+# include <unistd.h>
+
+int	ft_printf(const char *c, ...);
+int	ft_putstr(char *s);
+int	ft_putnbr_base(unsigned int n, unsigned int base, char *digit);
+int	ft_putnbr_ptr(void *n);
+int	ft_putchar(char c);
+int	ft_putnbr(int n);
+#endif

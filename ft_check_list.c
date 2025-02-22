@@ -6,7 +6,7 @@
 /*   By: lucas-do <lucas-do@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 18:49:19 by lucas-do          #+#    #+#             */
-/*   Updated: 2025/01/13 19:52:06 by lucas-do         ###   ########.fr       */
+/*   Updated: 2025/02/22 20:21:54 by lucas-do         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ static int	ft_check_str(char *str)
 	i = 0;
 	if (str[i] == '+' || str[i] == '-')
 		i++;
+	if (str[i] == '\0')
+		return (1);
 	while (str[i])
 	{
 		if (!(str[i] >= '0' && str[i] <= '9'))
@@ -42,23 +44,21 @@ static int	ft_check_str(char *str)
 	return (0);
 }
 
-int		check_error(t_list **head, char *str)
+int	check_error(t_list **head, char *str)
 {
 	long	nbr;
 
-	nbr = ft_atol(*str);
+	nbr = ft_atol(str);
 	if (nbr > INT_MAX || nbr < INT_MIN)
-		return (0);
+		return (ft_putendl_fd("Error", 2), 0);
 	if (ft_check_duplic(head, (int)nbr))
 	{
-		printf("duplicate number!\n");
-		ft_list_free(head);
+		ft_putendl_fd("Error", 2);
 		return (0);
 	}
-	if (ft_check_str(*str))
+	if (ft_check_str(str))
 	{
-		printf("please enter only numbers!\n");
-		ft_list_free(head);
+		ft_putendl_fd("Error", 2);
 		return (0);
 	}
 	return (1);
